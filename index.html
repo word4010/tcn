@@ -4,1162 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonya Sonic</title>
 
-    <title>Лера Будько</title>
+    <link rel="stylesheet" href="./style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* ===========================
-        RESET
-=========================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Montserrat, sans-serif;
-            background: linear-gradient(135deg, #050505, #131313, #25081a, #3a0a28);
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* ===========================
-        CONTAINER
-=========================== */
-
-        .container {
-            width: min(1200px, 92%);
-            margin: auto;
-        }
-
-        /* ===========================
-          HEADER
-=========================== */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            backdrop-filter: blur(18px);
-            background: rgba(20, 20, 20, .72);
-            border-bottom: 1px solid rgba(255, 105, 180, .18);
-        }
-
-        header .container {
-            height: 85px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* ===========================
-          LOGO
-=========================== */
-
-        .logo {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ff4da6;
-            text-shadow: 0 0 15px rgba(255, 77, 166, .45);
-        }
-
-        /* ===========================
-          NAVIGATION
-=========================== */
-
-        nav {
-            display: flex;
-            gap: 35px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: .3s;
-            position: relative;
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 0%;
-            height: 2px;
-            background: #ff4da6;
-            transition: .3s;
-        }
-
-        nav a:hover {
-            color: #ff7ac3;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ===========================
-          BUTTON
-=========================== */
-
-        .main-btn {
-
-            padding: 15px 32px;
-            border: none;
-            border-radius: 40px;
-
-            background: linear-gradient(135deg, #ff1493, #ff4da6);
-
-            color: white;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .35s;
-
-        }
-
-        .main-btn:hover {
-
-            transform: translateY(-6px);
-
-            box-shadow:
-                0 15px 40px rgba(255, 20, 147, .45);
-
-        }
-
-        /* ===========================
-            HERO
-=========================== */
-
-        .hero {
-
-            min-height: 100vh;
-
-            display: flex;
-
-            align-items: center;
-
-        }
-
-        .hero-content {
-
-            display: grid;
-
-            grid-template-columns: 1fr 480px;
-
-            gap: 70px;
-
-            align-items: center;
-
-        }
-
-        .hero h1 {
-
-            font-size: 72px;
-
-            margin-bottom: 20px;
-
-            line-height: 1.1;
-
-        }
-
-        .hero h1 span {
-
-            color: #ff4da6;
-
-            text-shadow:
-                0 0 20px rgba(255, 77, 166, .5);
-
-        }
-
-        .hero p {
-
-            font-size: 20px;
-
-            line-height: 1.9;
-
-            color: #d9c5d2;
-
-            margin-bottom: 40px;
-
-        }
-
-        .hero img {
-
-            width: 100%;
-
-            border-radius: 30px;
-
-            border: 2px solid rgba(255, 105, 180, .25);
-
-            box-shadow:
-                0 25px 70px rgba(255, 20, 147, .18);
-
-            animation: float 5s ease-in-out infinite;
-
-            transition: .45s;
-
-        }
-
-        .hero img:hover {
-
-            transform: scale(1.03);
-
-            box-shadow:
-                0 35px 80px rgba(255, 20, 147, .35);
-
-        }
-
-        @keyframes float {
-
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-
-        }
-
-        /* ===========================
-          SECTION
-=========================== */
-
-        section {
-
-            padding: 120px 0;
-
-        }
-
-        /* ===========================
-          TITLES
-=========================== */
-
-        .title {
-
-            text-align: center;
-
-            margin-bottom: 70px;
-
-        }
-
-        .title h2 {
-
-            font-size: 46px;
-
-            margin-bottom: 15px;
-
-            color: #fff;
-
-        }
-
-        .title p {
-
-            color: #dfbfd2;
-
-            max-width: 650px;
-
-            margin: auto;
-
-            line-height: 1.8;
-
-        }
-
-        /* ===========================
-          CARDS
-=========================== */
-
-        .cards {
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 35px;
-
-        }
-
-        .card {
-
-            background: rgba(255, 255, 255, .05);
-
-            backdrop-filter: blur(22px);
-
-            border-radius: 30px;
-
-            border: 1px solid rgba(255, 105, 180, .15);
-
-            padding: 40px;
-
-            transition: .35s;
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, .35);
-
-        }
-
-        .card:hover {
-
-            transform: translateY(-10px);
-
-            border-color: #ff4da6;
-
-            box-shadow:
-                0 20px 45px rgba(255, 20, 147, .18);
-
-        }
-
-        .card h3 {
-
-            font-size: 30px;
-
-            margin-bottom: 20px;
-
-            color: #fff;
-
-        }
-
-        .card p {
-
-            line-height: 1.9;
-
-            color: #d9c5d2;
-
-            margin-bottom: 30px;
-
-        }
-
-        .card button {
-
-            padding: 14px 28px;
-
-            border: none;
-
-            border-radius: 35px;
-
-            background: linear-gradient(135deg, #ff1493, #ff4da6);
-
-            color: white;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .3s;
-
-        }
-
-        .card button:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 15px 35px rgba(255, 20, 147, .45);
-
-        }
-
-        /* ===========================
-        MODALS
-=========================== */
-
-        .modal {
-
-            position: fixed;
-            inset: 0;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            background: rgba(0, 0, 0, .75);
-
-            backdrop-filter: blur(12px);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: .35s;
-
-            z-index: 9999;
-
-        }
-
-        .modal.active {
-
-            opacity: 1;
-            visibility: visible;
-
-        }
-
-        .modal-box {
-
-            width: min(550px, 92%);
-
-            background: rgba(25, 10, 20, .9);
-
-            backdrop-filter: blur(25px);
-
-            border: 1px solid rgba(255, 105, 180, .2);
-
-            border-radius: 30px;
-
-            padding: 45px;
-
-            color: white;
-
-            position: relative;
-
-            animation: popup .35s ease;
-
-            box-shadow:
-                0 20px 50px rgba(0, 0, 0, .45);
-
-        }
-
-        .modal-box h2 {
-
-            margin-bottom: 18px;
-            color: #ff66b8;
-
-        }
-
-        .modal-box p {
-
-            color: #e6cadb;
-            line-height: 1.8;
-
-        }
-
-        @keyframes popup {
-
-            from {
-
-                opacity: 0;
-                transform: translateY(40px) scale(.92);
-
-            }
-
-            to {
-
-                opacity: 1;
-                transform: none;
-
-            }
-
-        }
-
-        .close {
-
-            position: absolute;
-
-            right: 22px;
-            top: 18px;
-
-            font-size: 36px;
-
-            cursor: pointer;
-
-            transition: .3s;
-
-            color: white;
-
-        }
-
-        .close:hover {
-
-            color: #ff4da6;
-            transform: rotate(90deg);
-
-        }
-
-        /* ===========================
-          FOOTER
-=========================== */
-
-        footer {
-
-            padding: 45px 0;
-
-            margin-top: 90px;
-
-            text-align: center;
-
-            background: rgba(255, 255, 255, .03);
-
-            border-top: 1px solid rgba(255, 105, 180, .15);
-
-            backdrop-filter: blur(14px);
-
-        }
-
-        footer p {
-
-            color: #ffd3e7;
-
-            letter-spacing: 1px;
-
-            font-size: 15px;
-
-        }
-
-        /* ===========================
-        BUTTON EFFECT
-=========================== */
-
-        button {
-
-            transition:
-                transform .3s,
-                background .3s,
-                box-shadow .3s;
-
-        }
-
-        button:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 15px 35px rgba(255, 20, 147, .4);
-
-        }
-
-        /* ===========================
-      RESPONSIVE
-=========================== */
-
-        @media(max-width:980px) {
-
-            .hero-content {
-
-                grid-template-columns: 1fr;
-
-                text-align: center;
-
-            }
-
-            .cards {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            nav {
-
-                display: none;
-
-            }
-
-            .hero h1 {
-
-                font-size: 54px;
-
-            }
-
-            .hero img {
-
-                max-width: 420px;
-                margin: auto;
-
-            }
-
-        }
-
-        @media(max-width:600px) {
-
-            header .container {
-
-                height: 75px;
-
-            }
-
-            .logo {
-
-                font-size: 26px;
-
-            }
-
-            .hero {
-
-                padding-top: 80px;
-
-            }
-
-            .hero h1 {
-
-                font-size: 42px;
-
-            }
-
-            .hero p {
-
-                font-size: 18px;
-
-            }
-
-            .title h2 {
-
-                font-size: 34px;
-
-            }
-
-            .card {
-
-                padding: 28px;
-
-            }
-
-            .main-btn {
-
-                width: 100%;
-
-            }
-
-            .card button {
-
-                width: 100%;
-
-            }
-
-            .modal-box {
-
-                padding: 30px;
-
-            }
-
-        }
-
-        /* ===========================
-      SCROLLBAR
-=========================== */
-
-        ::-webkit-scrollbar {
-
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-
-            background: #111;
-
-        }
-
-        ::-webkit-scrollbar-thumb {
-
-            background: linear-gradient(#ff1493, #ff69b4);
-
-            border-radius: 20px;
-
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-
-            background: #ff3fa6;
-
-        }
-
-        /* =====================================
-        ANIMATED BACKGROUND
-===================================== */
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 650px;
-            height: 650px;
-            top: -220px;
-            left: -220px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ff149380 0%, transparent 70%);
-            filter: blur(120px);
-            animation: blobPink 16s ease-in-out infinite;
-            z-index: -3;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            right: -200px;
-            bottom: -200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ff69b460 0%, transparent 70%);
-            filter: blur(120px);
-            animation: blobPurple 18s ease-in-out infinite;
-            z-index: -3;
-        }
-
-        @keyframes blobPink {
-
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            25% {
-                transform: translate(90px, 40px) scale(1.08);
-            }
-
-            50% {
-                transform: translate(120px, 90px) scale(.95);
-            }
-
-            75% {
-                transform: translate(60px, 20px) scale(1.05);
-            }
-
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-        }
-
-        @keyframes blobPurple {
-
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            30% {
-                transform: translate(-80px, -60px) scale(1.12);
-            }
-
-            60% {
-                transform: translate(-120px, -90px) scale(.96);
-            }
-
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-        }
-
-        /* =====================================
-        GLASS STYLE
-===================================== */
-
-        .card,
-        .modal-box {
-
-            background: rgba(255, 255, 255, .05);
-
-            backdrop-filter: blur(22px);
-
-            -webkit-backdrop-filter: blur(22px);
-
-            border: 1px solid rgba(255, 105, 180, .18);
-
-            box-shadow:
-                0 15px 35px rgba(0, 0, 0, .35),
-                0 0 30px rgba(255, 20, 147, .08);
-
-        }
-
-        /* =====================================
-        SECTION ANIMATION
-===================================== */
-
-        section {
-
-            animation: fadeUp .9s ease both;
-
-        }
-
-        @keyframes fadeUp {
-
-            from {
-
-                opacity: 0;
-                transform: translateY(45px);
-
-            }
-
-            to {
-
-                opacity: 1;
-                transform: none;
-
-            }
-
-        }
-
-        /* =====================================
-        CARD HOVER
-===================================== */
-
-        .card {
-
-            overflow: hidden;
-            position: relative;
-
-        }
-
-        .card::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: -120%;
-
-            top: 0;
-
-            width: 70%;
-
-            height: 100%;
-
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(255, 255, 255, .12),
-                    transparent);
-
-            transform: skewX(-25deg);
-
-            transition: .8s;
-
-        }
-
-        .card:hover::before {
-
-            left: 160%;
-
-        }
-
-        .card:hover {
-
-            transform: translateY(-12px) scale(1.01);
-
-        }
-
-        /* =====================================
-        IMAGE EFFECT
-===================================== */
-
-        .hero img {
-
-            transition:
-                transform .5s,
-                box-shadow .5s,
-                filter .5s;
-
-            filter: saturate(1.05);
-
-        }
-
-        .hero img:hover {
-
-            transform: scale(1.04);
-
-            filter: saturate(1.2);
-
-            box-shadow:
-                0 30px 70px rgba(255, 20, 147, .35);
-
-        }
-
-        /* =====================================
-        TITLE EFFECT
-===================================== */
-
-        .title h2 {
-
-            position: relative;
-            display: inline-block;
-
-        }
-
-        .title h2::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            bottom: -12px;
-
-            width: 70px;
-
-            height: 4px;
-
-            border-radius: 20px;
-
-            background: linear-gradient(90deg,
-                    #ff1493,
-                    #ff69b4);
-
-        }
-
-        /* =====================================
-        BUTTONS
-===================================== */
-
-        .main-btn,
-        .card button {
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-        .main-btn::before,
-        .card button::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -120%;
-
-            width: 60%;
-
-            height: 100%;
-
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(255, 255, 255, .35),
-                    transparent);
-
-            transform: skewX(-25deg);
-
-            transition: .7s;
-
-        }
-
-        .main-btn:hover::before,
-        .card button:hover::before {
-
-            left: 170%;
-
-        }
-
-        /* =====================================
-        HERO TEXT
-===================================== */
-
-        .hero h1 {
-
-            text-shadow:
-                0 0 25px rgba(255, 20, 147, .15);
-
-        }
-
-        .hero h1 span {
-
-            text-shadow:
-                0 0 10px #ff1493,
-                0 0 25px #ff1493,
-                0 0 45px rgba(255, 20, 147, .35);
-
-        }
-
-        /* =====================================
-        FOOTER
-===================================== */
-
-        footer {
-
-            box-shadow:
-                0 -5px 30px rgba(255, 20, 147, .05);
-
-        }
-
-        /* =====================================
-        SELECTION
-===================================== */
-
-        ::selection {
-
-            background: #ff1493;
-
-            color: white;
-
-        }
-
-        /* =====================================
-        INPUTS (на майбутнє)
-===================================== */
-
-        input,
-        textarea {
-
-            background: rgba(255, 255, 255, .05);
-
-            border: 1px solid rgba(255, 105, 180, .2);
-
-            color: white;
-
-            padding: 15px;
-
-            border-radius: 14px;
-
-            outline: none;
-
-            transition: .3s;
-
-        }
-
-        input:focus,
-        textarea:focus {
-
-            border-color: #ff1493;
-
-            box-shadow:
-                0 0 20px rgba(255, 20, 147, .2);
-
-        }
-
-        /* =====================================
-        SMOOTH
-===================================== */
-
-        a,
-        button,
-        .card,
-        img {
-
-            will-change: transform;
-
-        }
-
-        /* ===========================
-      NAME SECTION
-=========================== */
-
-        .name-section {
-            padding: 140px 0;
-        }
-
-        .name-card {
-
-            max-width: 900px;
-            margin: auto;
-
-            padding: 55px;
-
-            text-align: center;
-
-            background: rgba(255, 255, 255, .05);
-
-            backdrop-filter: blur(20px);
-
-            border: 1px solid rgba(255, 105, 180, .18);
-
-            border-radius: 35px;
-
-            box-shadow:
-                0 20px 45px rgba(0, 0, 0, .35);
-
-            transition: .4s;
-
-        }
-
-        .name-card:hover {
-
-            transform: translateY(-10px);
-
-            box-shadow:
-                0 25px 60px rgba(255, 20, 147, .18);
-
-        }
-
-        .name-icon {
-
-            width: 90px;
-            height: 90px;
-
-            margin: 0 auto 35px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 42px;
-
-            border-radius: 50%;
-
-            background: linear-gradient(135deg, #ff1493, #ff69b4);
-
-            box-shadow:
-                0 0 35px rgba(255, 20, 147, .35);
-
-        }
-
-        .name-card p {
-
-            font-size: 20px;
-
-            line-height: 2;
-
-            color: #f4d8e7;
-
-        }
-
-        .name-card strong {
-
-            color: #ff69b4;
-
-        }
-    </style>
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 </head>
-<!--! html
-! html
-! html
-! html
--->
 
 <body>
 
+    <div id="particles-js"></div>
+
+    <div id="progress"></div>
+
+    <button id="topBtn">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <header>
 
-        <div class="container">
+        <div class="logo">
 
-            <div class="logo">
+            <i class="fa-solid fa-hat-wizard"></i>
 
-                ❤️ Лера
+            <h2>Sonya Sonic</h2>
 
-            </div>
+        </div>
 
-            <nav>
+        <nav>
 
-                <a href="#about">Про Леру</a>
+            <a href="#hero">Головна</a>
 
-                <!-- <a href="#medicine">Медицина</a> -->
+            <a href="#bio">Біографія</a>
 
-                <a href="#languages">Мови</a>
+            <a href="#footer">Контакти</a>
 
-            </nav>
+        </nav>
+        <div class="header-right">
 
-            <button class="main-btn" data-modal="aboutModal">
+            <div id="clock"></div>
 
-                Дізнатися більше
+            <button id="settingsBtn">
+
+                <i class="fa-solid fa-gear"></i>
 
             </button>
 
@@ -1167,249 +58,123 @@
 
     </header>
 
-    <section class="hero">
+    <div class="settings">
 
-        <div class="container hero-content">
+        <h3>⚙ Налаштування</h3>
 
-            <div>
+        <label>
 
-                <h1>
+            <input type="checkbox" id="particlesToggle" checked>
 
-                    Лера
+            Частинки
 
-                    <span>Будько</span>
+        </label>
 
-                </h1>
+        <label>
 
-                <p>
+            <input type="checkbox" id="animationToggle" checked>
 
-                    Цілеспрямована,
-                    розумна та допитлива.
+            Анімації
 
-                    Любить відкривати нові знання,
-                    вивчає іноземні мови
-                    та постійно розвивається.
+        </label>
 
-                </p>
+        <label>
 
-                <button class="main-btn" data-modal="aboutModal">
+            <input type="checkbox" id="fogToggle" checked>
 
-                    Про Леру
+            Туман
 
-                </button>
+        </label>
 
-            </div>
+        <select id="themeSelect">
 
-            <div>
+            <option value="dark">Dark</option>
 
-                <img src="./img/le_ra.png" alt="Лера">
+            <option value="magic">Magic</option>
 
-            </div>
+            <option value="light">Light</option>
 
-        </div>
+            <option value="sunset">Sunset</option>
 
-    </section>
-    <section class="name-section" id="name">
+        </select>
 
-        <div class="container">
+    </div>
 
-            <div class="title">
-                <h2>✨ Магія імені Валерія</h2>
-                <p>Ім'я, яке поєднує ніжність, силу та натхнення.</p>
-            </div>
+    <section class="hero" id="hero">
 
-            <div class="name-card">
+        <div class="hero-text" data-aos="fade-right">
 
-                <div class="name-icon">
-                    💖
-                </div>
+            <h1>Соня Сонік</h1>
 
-                <p>
-                    <strong>Валерія</strong> — ім'я, що несе в собі особливу грацію та
-                    внутрішню силу. Поєднує у собі непохитну стійкість і
-                    жіночний шарм, створюючи гармонію ніжності та впевненості.
+            <h3>
 
-                    <br><br>
+                <span id="typed"></span>
 
-                    За її тендітною зовнішністю приховується справжнє благородство,
-                    сильний вольовий характер і здатність долати будь-які вершини.
-                    Вона надихає своїм оптимізмом, сміливо йде до своїх мрій та
-                    водночас залишається щирою, доброю й уважною до людей.
-
-                    <br><br>
-
-                    Бути <strong>Валерією</strong> — означає твердо стояти на ногах,
-                    але мати крила за плечима; залишатися незламною перед будь-якими
-                    викликами долі та зберігати серце, наповнене теплом, любов'ю й
-                    світлом, яке вона дарує всім, хто поруч.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-    <section id="about">
-
-        <div class="container">
-
-            <div class="title">
-
-                <h2>❤️ Про Леру</h2>
-
-                <p>
-
-                    Лера — добра, відповідальна та наполеглива.
-                    Вона любить навчатися, відкривати нові можливості
-                    й завжди прагне стати кращою.
-
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>🌍 Іноземні мови</h3>
-
-                <p>
-
-                    Вивчає іноземні мови,
-                    любить знайомитися
-                    з новими культурами
-                    та розширювати свій кругозір.
-
-                </p>
-
-                <button data-modal="languageModal">
-
-                    Детальніше
-
-                </button>
-
-            </div>
-
-        </div>
-
-        </div>
-
-    </section>
-
-    <section id="languages">
-
-        <div class="container">
-
-            <div class="title">
-
-                <h2>🌍 Іноземні мови</h2>
-
-                <p>
-
-                    Нові мови відкривають двері
-                    до нових культур,
-                    подорожей
-                    і знайомств.
-
-                </p>
-
-            </div>
-
-            <div class="cards">
-
-                <div class="card">
-
-                    <h3>🇬🇧 Англійська</h3>
-
-                    <p>
-
-                        Удосконалення знань,
-                        читання,
-                        спілкування
-                        та розвиток словникового запасу.
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>🌎 Нові культури</h3>
-
-                    <p>
-
-                        Кожна нова мова —
-                        це можливість
-                        краще зрозуміти людей
-                        та світ.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section id="medicine">
-
-        <div class="container">
-
-            <div class="title">
-
-                <h2> Про Валерію </h2>
-
-                <p>
-                    Валерія — це гармонія витонченої ніжності. Вона має особливий, чарівний магнетизм: за її тендітною
-                    жіночністю ховається
-                    впертість та непохитна вірність власним принципам та ідеям. Якщо Валерія щось задумала, вона
-                    обов'язково досягне свого.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-    <footer>
-
-        <div class="container">
+            </h3>
 
             <p>
 
-                © 2026 • Сайт присвячений Лері Будько ❤️
+                Загадкова відьма, яка здатна зачаровувати серця.
+                Її магія прихована у погляді, посмішці та загадковій атмосфері.
 
             </p>
 
+            <button id="openModal">
+
+            <a href="#bio"> Дізнатись більше</a>   
+
+            </button>
+
         </div>
+
+<div class="hero-image">
+    <img src="img/sonya.png" alt="Sonya Sonic">
+</div>
+
+    </section>
+
+    <section class="bio" id="bio" data-aos="fade-up">
+
+        <h2>Біографія</h2>
+
+        <p>
+
+            Соня — загадкова дівчина, яку багато хто називає відьмою не через магію,
+            а через її особливу харизму.
+            Вона залишає після себе теплі спогади,
+            а її усмішка здатна зачарувати будь-кого.
+            Кажуть, що кожна зустріч із нею стає маленькою пригодою,
+            сповненою загадковості та чарівної атмосфери.
+
+        </p>
+
+    </section>
+
+    <footer id="footer">
+
+        <h2>Sonya Sonic</h2>
+
+        <p>
+
+            © 2026 Усі права захищені
+
+        </p>
 
     </footer>
-    <!-- =========================
-            ABOUT MODAL
-    ========================= -->
 
-    <div class="modal" id="aboutModal">
+    <div class="modal">
 
-        <div class="modal-box">
+        <div class="modal-content">
 
             <span class="close">&times;</span>
 
-            <h2>❤️ Про Леру</h2>
+            <h2>✨ Магія Соні</h2>
 
             <p>
 
-                Лера — цілеспрямована,
-                відповідальна та добра людина.
-
-                Вона любить навчатися,
-                розвиватися,
-                відкривати нові можливості
-                та постійно вдосконалювати себе.
+                Кажуть, що справжня магія не завжди ховається у заклинаннях.
+                Іноді вона живе в доброті, погляді та щирій усмішці.
+                Саме тому Соню називають відьмою, яка зачаровує серця.
 
             </p>
 
@@ -1417,286 +182,22 @@
 
     </div>
 
-    <!-- =========================
-          MEDICINE MODAL
-    ========================= -->
-    <!--!     
-    <div class="modal" id="medicineModal">
-    
-        <div class="modal-box">
-    
-            <span class="close">&times;</span>
-    
-            <h2>🩺 Вивчення медицини</h2>
-    
-            <p>
-    
-                Медицина приваблює Леру
-                можливістю допомагати людям,
-                досліджувати людський організм
-                та постійно відкривати нові знання.
-    
-            </p>
-    
-        </div>
-    
-    </div>
-      -->
-    <!-- =========================
-          LANGUAGE MODAL
-    ========================= -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <div class="modal" id="languageModal">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-        <div class="modal-box">
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
 
-            <span class="close">&times;</span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
-            <h2>🌍 Іноземні мови</h2>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-            <p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 
-                Вивчення мов дозволяє
-                краще розуміти інші культури,
-                спілкуватися з людьми
-                з різних країн
-                та відкривати для себе світ.
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-            </p>
+    <script src="./script.js"></script>
 
-        </div>
+</body>
 
-    </div>
-
-    <!-- =========================
-           THANKS MODAL
-    ========================= -->
-
-    <div class="modal" id="thanksModal">
-
-        <div class="modal-box">
-
-            <span class="close">&times;</span>
-
-            <h2>💙</h2>
-
-            <p>
-
-                Дякуємо,
-                що відвідали сайт,
-                присвячений Лері Будько.
-
-                Бажаємо гарного дня!
-
-            </p>
-
-        </div>
-
-    </div>
-    <script>
-
-        // ===========================
-        // MODAL WINDOWS
-        // ===========================
-
-        const buttons = document.querySelectorAll("[data-modal]");
-        const modals = document.querySelectorAll(".modal");
-        const closes = document.querySelectorAll(".close");
-
-        buttons.forEach(button => {
-
-            button.onclick = () => {
-
-                const modal = document.getElementById(button.dataset.modal);
-
-                if (modal) {
-
-                    modal.classList.add("active");
-
-                    document.body.style.overflow = "hidden";
-
-                }
-
-            };
-
-        });
-
-        closes.forEach(close => {
-
-            close.onclick = () => {
-
-                close.parentElement.parentElement.classList.remove("active");
-
-                document.body.style.overflow = "auto";
-
-            };
-
-        });
-
-        window.onclick = e => {
-
-            modals.forEach(modal => {
-
-                if (e.target === modal) {
-
-                    modal.classList.remove("active");
-
-                    document.body.style.overflow = "auto";
-
-                }
-
-            });
-
-        };
-
-        document.addEventListener("keydown", e => {
-
-            if (e.key === "Escape") {
-
-                modals.forEach(modal => modal.classList.remove("active"));
-
-                document.body.style.overflow = "auto";
-
-            }
-
-        });
-
-        // ===========================
-        // HEADER EFFECT
-        // ===========================
-
-        const header = document.querySelector("header");
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 80) {
-
-                header.style.background = "rgba(15,23,42,.95)";
-
-                header.style.boxShadow = "0 15px 35px rgba(0,0,0,.25)";
-
-            } else {
-
-                header.style.background = "rgba(255,255,255,.06)";
-
-                header.style.boxShadow = "none";
-
-            }
-
-        });
-
-        // ===========================
-        // SMOOTH SCROLL
-        // ===========================
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-            anchor.addEventListener("click", function (e) {
-
-                e.preventDefault();
-
-                const section = document.querySelector(this.getAttribute("href"));
-
-                if (section) {
-
-                    section.scrollIntoView({
-
-                        behavior: "smooth"
-
-                    });
-
-                }
-
-            });
-
-        });
-
-        // ===========================
-        // FADE ANIMATION
-        // ===========================
-
-        const observer = new IntersectionObserver(entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = 1;
-
-                    entry.target.style.transform = "translateY(0)";
-
-                }
-
-            });
-
-        }, {
-
-            threshold: .15
-
-        });
-
-        document.querySelectorAll(".card,.title,.hero img,.hero h1,.hero p").forEach(item => {
-
-            item.style.opacity = 0;
-
-            item.style.transform = "translateY(50px)";
-
-            item.style.transition = ".8s";
-
-            observer.observe(item);
-
-        });
-
-        // ===========================
-        // BUTTON HOVER SCALE
-        // ===========================
-
-        document.querySelectorAll("button").forEach(btn => {
-
-            btn.addEventListener("mouseenter", () => {
-
-                btn.style.transform = "scale(1.05)";
-
-            });
-
-            btn.addEventListener("mouseleave", () => {
-
-                btn.style.transform = "scale(1)";
-
-            });
-
-        });
-
-        // ===========================
-        // HERO PARALLAX
-        // ===========================
-
-        const heroImg = document.querySelector(".hero img");
-
-        window.addEventListener("mousemove", e => {
-
-            if (!heroImg) return;
-
-            const x = (window.innerWidth / 2 - e.clientX) / 35;
-
-            const y = (window.innerHeight / 2 - e.clientY) / 35;
-
-            heroImg.style.transform =
-
-                `translate(${x}px,${y}px)`;
-
-        });
-
-        // ===========================
-        // CONSOLE
-        // ===========================
-
-        console.log(
-
-            "%cЛера Будько ❤️",
-
-            "font-size:22px;color:#38bdf8;font-weight:bold;"
-
-        );
-
-    </script>
+</html>
